@@ -19,10 +19,18 @@ function fizzBuzz(event) {
         fizbuz = fizbuz + "buzz";
       }
       if (fizbuz.length > 0) {
-        printValue(fizbuz);
+        if (i % 2 === 0) {
+          printValueStrong(fizbuz);
+        } else {
+          printValue(fizbuz);
+        }
         fizbuz = noFiz;
       } else {
-        printValue(i);
+        if (i % 2 === 0) {
+          printValueStrong(i);
+        } else {
+          printValue(i);
+        }
       }
       if (i === num) {
         done = true;
@@ -34,19 +42,6 @@ function fizzBuzz(event) {
   }
 }
 
-/*
-    Stretch goal TODO:
-    Using the variable we saved above for the input box, clear its value.
-    
-    You might have to do a small bit of research for this, though you should be
-    able to figure it out based on the fact that we can assign values to properties,
-    just as we can to variables.
-
-    This is a very useful feature, as it's an annoying and unexpected user
-    experience to ask them to delete anything they've inputted previously before
-    inputting something else.
-  */
-
 function printValue(value) {
   const listItem = document.createElement("li");
   // Put its value as its contents.
@@ -54,7 +49,6 @@ function printValue(value) {
   listItem.style.color = "blue";
   listItem.style.fontSize = "2em";
   listItem.style.marginTop = "5px";
-
   const list = document.querySelector(".list");
   list.appendChild(listItem);
 }
@@ -68,7 +62,9 @@ function printValueStrong(value) {
 
   // Stretch goal TODO: copy and paste the styling code from `printValue` here.
   // Otherwise we'll only get the styling on half the items!
-
+  listItem.style.color = "blue";
+  listItem.style.fontSize = "2em";
+  listItem.style.marginTop = "5px";
   // Find the unordered list we've made into a results console.
   const list = document.querySelector(".list");
   // Append our list item to it.

@@ -24,16 +24,16 @@ function fizzBuzz(event) {
       } else {
         printValue(i);
       }
-      if(i === num ){
+      if (i === num) {
         done = true;
       }
     }
-  }if(done){clearInput();}
+  }
+  if (done) {
+    document.getElementById("input").value = "";
+  }
 }
 
-function clearInput() {
-  document.getElementById("input").value = "";
-}
 /*
     Stretch goal TODO:
     Using the variable we saved above for the input box, clear its value.
@@ -51,29 +51,11 @@ function printValue(value) {
   const listItem = document.createElement("li");
   // Put its value as its contents.
   listItem.innerText = value;
+  listItem.style.color = "blue";
+  listItem.style.fontSize = "2em";
+  listItem.style.marginTop = "5px";
 
-  /*
-    Stretch goal TODO:
-    Before we append it to the list, let's style this list item.
-    Give it the following (easy but not particularly good) CSS, using properties
-    on [element].style. See `printValueStrong` below for a couple examples.
-
-    Although I'm using CSS to demonstrate what we want, note that we want you to
-    use JavaScript for this. Also note that there's no kebab case in JavaScript!
-
-    li {
-      font-size: 2em;
-      color: blue;
-      margin-top: 5px;
-    }
-    
-    If you want to set the values of these properties to something else, feel
-    free!
-  */
-
-  // Find the unordered list we've made into a results console.
   const list = document.querySelector(".list");
-  // Append our list item to it.
   list.appendChild(listItem);
 }
 

@@ -1,38 +1,40 @@
-// Find the submit button on our page.
 const submitButton = document.querySelector(".submit");
 const userInput = document.querySelector("#input");
-
-//When it's clicked, launch `fizzBuzz`.
 submitButton.onclick = fizzBuzz;
 
-
 function fizzBuzz(event) {
-  // Make sure the page isn't reloaded when the user submits the form.
   event.preventDefault();
-
   clearList();
-
   let num = parseInt(userInput.value);
-  
-  for( let i = 1; i <num +1 ; i++){
-    let fizbuz="";
-    const noFiz = "";
+  let done = false;
+
+  while (!done) {
+    for (let i = 1; i < num + 1; i++) {
+      let fizbuz = "";
+      const noFiz = "";
       if (i % 3 === 0) {
         fizbuz = "fizz";
       }
       if (i % 5 === 0) {
-        fizbuz = fizbuz + "buzz"
+        fizbuz = fizbuz + "buzz";
       }
-      if(fizbuz.length > 0){
-        printValue(fizbuz);w
+      if (fizbuz.length > 0) {
+        printValue(fizbuz);
         fizbuz = noFiz;
-      }else{
+      } else {
         printValue(i);
       }
-
+      if(i === num ){
+        done = true;
+      }
     }
-  }
-  /*
+  }if(done){clearInput();}
+}
+
+function clearInput() {
+  document.getElementById("input").value = "";
+}
+/*
     Stretch goal TODO:
     Using the variable we saved above for the input box, clear its value.
     
@@ -44,8 +46,6 @@ function fizzBuzz(event) {
     experience to ask them to delete anything they've inputted previously before
     inputting something else.
   */
-
-
 
 function printValue(value) {
   const listItem = document.createElement("li");
